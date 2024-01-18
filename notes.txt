@@ -1,0 +1,17 @@
+spatial temporary encoding:
+
+_mse(mean square error): used to assess the differnce between 2 blocks
+_motion vector: used by the decoder to find the placement of a block based on the similar block from the previous frame, it's null for bg blocks
+_search space (voisinage): the neighborhood that we search in for the new block (usually 7 pixels in all directions)
+_residu: the difference between an encoded block and the best matching block from the previous frame 
+_predicted_image: the estimated image based on the current frame and its motion vectors
+_the errors are then calculated between the frame and the predicted next frame 
+
+decoding:
+
+_predicted image is created
+_using it and the calculated errors it is able to construct the next frame
+
+
+_b-frames stores two motion vectors from the previous and next frame and uses them and the residual image to regenerate them
+_b-frames take less space and more processing ressources as they need to manage multiple reference frames
